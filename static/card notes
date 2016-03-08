@@ -1,0 +1,40 @@
+0 0010001 011011001111101100010100 0
+0 0010001 011011001111101100001010 0
+e sssssss iiiiiiiiiiiiiiiiiiiiiiii o
+
+e even parity
+o odd parity
+s site code
+i id code
+
+
+Our side code is 17
+our card format is
+  33 bit wiegand
+  
+  even site parity bit
+  + 7 bits for site
+  + 24 bits for ID
+  + odd ID parity bit
+
+
+Test Cards
+card 1
+  7142164 11101367660-1
+  000100010110110011111011000101000
+  
+  
+card 2
+  7142154 11101367660-1
+  000100010110110011111011000010100
+  
+  
+  33 bit wiegand. MSB first
+  
+  
+UI needs to:
+  List Cards
+    Show card owner
+    Show card permissions
+    
+  
