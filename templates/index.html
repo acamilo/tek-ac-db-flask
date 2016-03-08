@@ -7,16 +7,28 @@
      <div class="ui one column stackable center aligned page grid">
        <div class="column twelve wide">
        <h2> Door Lock Admin Page </h2>
+       <p> On the card you will see a long number. There should be 7 digits followed by 11101367660-1. These 7 digits are the number you enter</p>
         <div class="ui grid">
           <div class="six wide column">
           <div class="ui raised segment" style="height: 80%; overflow-y: auto;">
           <form id = "update" method="post" action="/add">
-          <div class="ui action small input" style="width:100%">
+          <div class="ui action small input {% if error %} error {% endif %}" style="width:100%">
    
-            <input type="text" id="addcard" name="newcard"/>
+            <input type="text" id="addcard" name="newcard" value="{% if error %} {{ currcard.cardnum }} {% endif %}"/>
             <button class="ui button small" id="addcardbutton">Add Card</button>
           </div>
           </form>
+            {% if error %}
+              <div class="ui icon negative message">
+                <i class="warning icon"></i>
+                <div class="content">
+                  <div class="header">
+                    Oops!
+                  </div>
+                  <p>{{ error }}</p>
+                </div>
+              </div>
+            {% endif %}
             
             <div class="ui middle aligned divided selection list">
             {% for n in cards %}
@@ -92,7 +104,7 @@
                 
                 {% for a in curraccesslog %}
                   <tr>
-                    <td>{{ a.door }}</td>
+                    <td>{{ a.item }}</td>
                     <td>{{ a.result }}</td>
                     <td class="right aligned">{{ a.date }}</td>
                   </tr>
