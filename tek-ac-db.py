@@ -1,6 +1,5 @@
 from flask import Flask, request, redirect, url_for, send_from_directory, render_template
 from flask.ext.basicauth import BasicAuth
-import wiegand
 import pickledb
 import sys
 
