@@ -19,13 +19,13 @@
           </form>
             
             <div class="ui middle aligned divided selection list">
-            {% for n,v in cards.iteritems() %}
+            {% for n in cards %}
             
-              <a class="item" href="/view/{{ n }}">
+              <a class="item" href="/view/{{ n.cardnum }}">
                 <div class="content">
-                  <div class="header">{{ v.first}} {{ v.last }}
+                  <div class="header">{{ n.first}} {{ n.last }}
                     <div class="right floated content">
-                      <span float="right"><strong>ID: </strong>{{ n }}</span>
+                      <span float="right"><strong>ID: </strong>{{ n.cardnum }}</span>
                       </div>
                     </div>
                   </div>
@@ -38,9 +38,9 @@
           <div class="ten wide column">
           <div class="ui raised segment" style="height: 80%">
           {% if currcard %}
-          <h3>ID: {{ cardid }}</h3> <hr />
+          <h3>ID: {{ currcard.cardnum }}</h3> <hr />
             <form class="ui form" id = "update" method="post" action="/update">
-              <input type="hidden" name="card" value="{{ cardid }}"></input>
+              <input type="hidden" name="card" value="{{ currcard.cardnum }}"></input>
               <div class="field">
                 <label>First Name</label>
                 <input type="text" name="first" placeholder="First Name" value="{{ currcard.first }}">
